@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Create New User</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    /* Custom CSS for the form */
+    .form-container {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    }
+
+    .form-label {
+      font-weight: bold;
+    }
+
+    /* Custom CSS for the success message */
+    .success-message {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    /* Custom CSS for the Save button */
+    .btn-save {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-save:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div align="center">
+  <h1>Add New User</h1>
+
+  <br />
+
+  <div class="col-sm-4 form-container">
+    <!-- Add this code to display the success message -->
+    <div th:if="${successMessage}" class="alert alert-success success-message">
+      <p th:text="${successMessage}"></p>
+    </div>
+
+    <form action="/createuser" method="post">
+      <div>
+        <label class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" placeholder="Name" />
+      </div>
+
+      <div>
+        <label class="form-label">Username</label>
+        <input type="text" name="userName" class="form-control" placeholder="Username" />
+      </div>
+
+      <div>
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Password" />
+      </div>
+
+      <br>
+
+      <div>
+        <button type="submit" class="btn btn-save">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

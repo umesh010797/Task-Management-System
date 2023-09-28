@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Custom CSS for the form */
+        .container {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .btn-save {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .btn-save:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <h1>Edit Task</h1>
+    <br />
+    <div class="col-sm-4">
+        <form action="/update" method="post" class="container">
+            <!-- Add a hidden input field for the task ID -->
+            <input type="hidden" name="id" th:value="${task.id}" />
+            <div class="form-group">
+                <label class="form-label">ID</label>
+                <input type="text" name="id" class="form-control" placeholder="id" th:value="${task.id}" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" placeholder="Title" th:value="${task.title}" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <input type="text" name="description" class="form-control" placeholder="Description" th:value="${task.description}" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Due Date</label>
+                <input type="date" name="dueDate" class="form-control" placeholder="Due Date" th:value="${task.dueDate}" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Status</label>
+                <div class="form-check">
+                    <input type="checkbox" name="status" class="form-check-input" />
+                    <label class="form-check-label">Completed</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Assign To</label>
+                <input type="text" name="assignTo" class="form-control" placeholder="User ID" th:value="${task.assignTo.id}" />
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-save">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
