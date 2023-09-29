@@ -118,7 +118,7 @@ Acknowledgments
 
 Feel free to customize this README to fit your project's specific details and requirements. Providing comprehensive documentation and clear instructions will help users and contributors understand and use your Task Management System effectively.
 To start project first run project
-after successful run project go to the any browser and enter url http://local history:8080/gettask
+after successful run project go to the any browser and enter url http://localhost:8080/gettask
 
 Hear some screen shot of project
 ![img.png](img.png)
